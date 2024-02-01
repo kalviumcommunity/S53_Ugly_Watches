@@ -9,25 +9,24 @@ List of Ugliest Watches on the planet
 - Users can vote and rank watches based on their preferences.
 
 - Sort/Filter:
-  Sorting and filtering options for easy navigation.
-
+  For easy navigation Sorting and filtering option
 - User Generated Lists:
-  Users can create and share their lists of Ugly Watches
+  Users can make and post their lists of Ugly Watches
 
   ***
 
 ### To Contribute:
 
-To contribute to Ugly Watches, follow these steps:
+To contribute to Ugly Watches:
 
-- **Setting up the Development Environment:**
-  Include detailed instructions on setting up the development environment to facilitate contributions.
+- **Setting up the Dev Environment:**
+  Include detailed instructions on setting up the dev environment to facilitate contributions.
 
 - **Running Tests:**
-  Provide information on how to run tests.
+  Include a detailed information on how to run tests.
 
 - **Submitting Pull Requests (PRs):**
-  Outline the steps for submitting PRs
+  Mention the steps for submitting PRs
 
 ---
 
