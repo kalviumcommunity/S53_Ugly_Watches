@@ -1,38 +1,32 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const app = express();
+const port = process.env.PORT || 3000;
 
-dotenv.config();
+app.use(cors());
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
+});
 
-let dbConnection;
+// Routes
+app.use(express.json());
+mongoose.connect("mongodb+srv://rajabshoukath:rajab2004@hideoushours.h27dy0l.mongodb.net/test?retryWrites=true&w=majority")
 
-async function startDatabase() {
-  const uri = process.env.MONGODB_URI;
+const db = mongoose.connection;
+app.get("/", (req, res) => {
+  res.send(
+    `Database connection status: ${
+      db.readyState === 1 ? "Connected" : "Disconnected"
+    }`
+  );
+});
 
-  if (!uri) {
-    throw new Error("MongoDB URI is not defined in the .env file.");
-  }
+app.get("/ping", (req, res) => {
+  res.send("Hello World");
+});
 
-  try {
-    dbConnection = await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("Database connected");
-  } catch (error) {
-    console.error("Error connecting to database:", error);
-    throw error;
-  }
-}
-
-async function stopDatabase() {
-  if (dbConnection) {
-    await mongoose.disconnect();
-    console.log("Database disconnected");
-  }
-}
-
-function isConnected() {
-  return mongoose.connection.readyState === 1; // 1 means connected
-}
-
-export { startDatabase, stopDatabase, isConnected };
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
