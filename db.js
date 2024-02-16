@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-import dotenv from 'dotenv';  // Change the import statement
-
+import dotenv from 'dotenv';  
 dotenv.config();
 
 let mongooseConnection;
