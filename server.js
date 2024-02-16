@@ -5,7 +5,6 @@ const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 const mongoURI = process.env.mongoURI;
-
 app.use(cors());
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -17,6 +16,7 @@ app.use(express.json());
 mongoose.connect(mongoURI);
 
 const db = mongoose.connection;
+//to show the database connected message on localhost
 app.get("/", (req, res) => {
   res.send(
     `Database connection status: ${
