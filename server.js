@@ -2,7 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+require('dotenv').config();
 const port = process.env.PORT || 3000;
+const mongoURI = process.env.mongoURI;
 
 app.use(cors());
 app.use((err, req, res, next) => {
@@ -12,7 +14,7 @@ app.use((err, req, res, next) => {
 
 // Routes
 app.use(express.json());
-mongoose.connect("mongodb+srv://rajabshoukath:rajab2004@hideoushours.h27dy0l.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect(mongoURI);
 
 const db = mongoose.connection;
 app.get("/", (req, res) => {
