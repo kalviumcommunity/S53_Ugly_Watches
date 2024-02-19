@@ -1,0 +1,191 @@
+@import url(https://db.onlinewebfonts.com/c/58dac32d63e934bab07542927c7e9941?family=Andalus+V4);
+
+@font-face {
+    font-family: heverlyregular-0vdqr;
+    src: url(./assets//heverlyregular-0vdqr.ttf);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.parentDiv {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    color: #C4A070;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    font-family: "Andalus V4";
+    margin-top: 1.5%;
+    padding-bottom: 20px;
+    user-select: none;
+}
+
+.leftTexts {
+    display: flex;
+    justify-content: space-evenly;
+    width: 25%;
+    font-size: 16px;
+    color: white;
+    transition: opacity 1.3s ease;
+}
+
+.leftTexts>p {
+    cursor: pointer;
+}
+
+.leftTexts>p:hover {
+    color: #e7bc85;
+}
+
+
+.logo>img {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.registerBtnDiv>button {
+    background-color: black;
+    border: 2px solid #C4A070;
+    font-size: 16px;
+    border-radius: 30px;
+    padding: 8px 30px;
+    color: #C4A070;
+    font-family: "Andalus V4";
+    transition: background-color 1.0s ease, color 0.3s ease;
+}
+
+.registerBtnDiv>button:hover {
+    background-color: #C4A070;
+    color: white;
+}
+
+/* PARALLAX */
+.heroHeader {
+    font-size: 180px;
+    font-family: heverlyregular-0vdqr;
+    margin-top: 70px;
+}
+
+
+.flex {
+    text-align: center;
+}
+
+.flex::-webkit-scrollbar {
+    display: none;
+}
+
+.watchHero {
+    position: relative;
+    top: 10px;
+    animation: fadeInAnimation 2s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.featuringSetion>h1 {
+    font-size: 120px;
+    font-family: heverlyregular-0vdqr;
+    color: #C4A070;
+    height: 25px;
+    margin-bottom: 100px;
+}
+
+.featuringSetion {
+    margin-top: 20%;
+}
+
+.featuringPara>p {
+    text-align: center;
+    font-size: 27px;
+    width: 90%;
+}
+
+
+
+.featuringPara {
+    display: flex;
+
+    justify-content: center;
+    line-height: 300%
+}
+
+.blackDiv {
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.loginBg {
+    background-image: url("https://i.ibb.co/tmZK0f1/richard-mille-rm-35-02-automatic-rafael-nadal-8934.webp");
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    font-family: heverlyregular-0vdqr;
+
+}
+
+.credentials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 80vh;
+    justify-content: center;
+    margin-right: 10%;
+}
+
+.credentials>div>h1 {
+    text-align: center;
+    font-size: 60px;
+    color: #e7bc85;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formBtn {
+    background-color: black;
+    border: 1px solid #C4A070;
+    padding: 25% 55%;
+    margin-top: 12px;
+    color: #C4A070;
+    border-radius: 18px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input {
+    margin-top: 12px;
+    width: 150%;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(25, 25, 25);
+    border: none;
+    color: #C4A070;
+}
+
+input:focus {
+    outline: none;
+}
