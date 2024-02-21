@@ -5,6 +5,11 @@
     src: url(./assets//heverlyregular-0vdqr.ttf);
 }
 
+@font-face {
+    font-family: Griffin Demo;
+    src: url(./assets/Griffin\ Demo.ttf);
+}
+
 body {
     overflow-x: hidden;
 }
@@ -216,33 +221,80 @@ input:focus {
 
 /* card posts */
 .postImgCard {
-    width: 500px;
+    width: 405px;
     object-fit: cover;
-    height: 400px;
+    height: 350px;
     border-radius: 10px 10px 0px 0px;
 
 }
 
 .cardTitle {
     font-family: heverlyregular-0vdqr;
-    font-size: 62px;
-    padding: 10px 20px 0px;
+    font-size: 48px;
+    padding: 20px 50px 0px;
 }
 
 .descriptionCard {
     font-family: 'Times New Roman', Times, serif;
-    width: 400px;
+    width: 305px;
     line-height: 150%;
-    padding-left: 20px;
+    padding-left: 50px;
     padding-bottom: 30px;
 }
 
 .card {
     background-color: #1E1E1E;
     width: fit-content;
+    height: fit-content;
     border-radius: 10px;
 }
 
 .btns {
     position: absolute;
+}
+
+/* .grid {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5%;
+    grid-row-gap: 0px;
+} */
+.parentCard {
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 5%;
+    grid-row-gap: 5%;
+}
+
+.card {
+    display: grid;
+    place-content: center;
+
+}
+
+.parentGrid {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.postsHeader {
+    text-align: center;
+    font-family: heverlyregular-0vdqr;
+    font-size: 120px;
+    margin-top: 10%;
+    color: #e7bc85;
+}
+
+.subHeading {
+    text-align: center;
+    font-weight: lighter;
+    color: rgb(215, 215, 215);
+}
+
+.topHeadingPost {
+    line-height: 50px;
 }
