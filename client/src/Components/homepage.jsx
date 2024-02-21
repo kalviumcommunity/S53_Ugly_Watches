@@ -7,9 +7,8 @@ function HomePage() {
     // Simulate loading time for the header
     const headerTimeout = setTimeout(() => {
       setIsHeaderLoaded(true);
-    }, 100); // Adjust the duration as needed
+    }, 100);
 
-    // Clean up the timeout to avoid memory leaks
     return () => clearTimeout(headerTimeout);
   }, []);
   const [h1load, setIsh1Loaded] = useState(false);

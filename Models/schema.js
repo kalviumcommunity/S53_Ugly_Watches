@@ -1,8 +1,10 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const uglywatches = new Schema({
+
+const WatchSchema = new Schema({
   postID: { type: Number, required: true },
   Title: { type: String, required: true },
-  Image: String,
+  Image: { type: String, required: true },
 });
-export const watchesModel = mongoose.model("uglywatch", uglywatches);
+const Watch = mongoose.model("watches", WatchSchema);
+module.exports = Watch;

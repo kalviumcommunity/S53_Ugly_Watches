@@ -1,22 +1,34 @@
-
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div className="parentDiv">
       <nav>
         {/* ELEMENTS TO LEFT */}
         <div className="leftTexts">
-          <p>HOME</p>
-          <p>POSTS</p>
-          <p>SAVED</p>
-          <p>ABOUT</p>
+          <Link style={{ textDecoration: "none" }} to="/">
+            <p className="leftTexts">HOME</p>{" "}
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/posts">
+            <p className="leftTexts">POSTS</p>{" "}
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/create-post">
+            {" "}
+            <p className="leftTexts">SAVED</p>{" "}
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/about">
+            {" "}
+            <p className="leftTexts">ABOUT</p>{" "}
+          </Link>
         </div>
         {/* LOGO */}
         <div className="logo">
           <img src="https://i.ibb.co/XpK5YJg/logo.png"></img>
         </div>
         {/* SIGN IN BUTTON */}
-        <div className="registerBtnDiv">
-          <button>REGISTER</button>
+        <div>
+          <Link style={{ textDecoration: "none" }} to="/login">
+            <button className="registerBtnDiv">REGISTER</button>
+          </Link>
         </div>
       </nav>
     </div>
