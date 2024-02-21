@@ -231,7 +231,7 @@ input:focus {
 .cardTitle {
     font-family: heverlyregular-0vdqr;
     font-size: 48px;
-    padding: 20px 50px 0px;
+    padding: 50px 50px 0px;
 }
 
 .descriptionCard {
@@ -245,7 +245,7 @@ input:focus {
 .card {
     background-color: #1E1E1E;
     width: fit-content;
-    height: fit-content;
+    /* height: fit-content; */
     border-radius: 10px;
 }
 
