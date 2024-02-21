@@ -1,15 +1,12 @@
 import "./App.css";
-import HomePage from "./Components/homepage";
-import Navbar from "./Components/navbar";
-import LoginPage from "./Components/Login";
+import Navbar from "./Components/Navbar";
+import AllRoutes from "./Routes/AllRoutes";
 function App() {
   return (
     <>
       <Navbar />
-      {/* <LoginPage /> */}
-      <HomePage />
+      <AllRoutes />
     </>
   );
 }
-
 export default App;
