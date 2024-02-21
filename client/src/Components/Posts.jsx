@@ -1,26 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import ScrollFade from "@benestudioco/react-scrollfade";
 
-const Posts = () => {
+export const Home = () => {
+  const [watches, setWatches] = useState([]);
+
+  useEffect(() => {
+    const fetchWatches = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/watch");
+        setWatches(response.data);
+      } catch (error) {
+        console.log("error: ", error);
+      }
+    };
+
+    fetchWatches();
+  }, []);
+
   return (
-    <div>
-      <div className="grid">
-        <div className="parentCard">
-          <div className="card">
-            <div>
-              {/* <button className="btns">delete</button> */}
-              {/* <button className="btns">update</button> */}
-              <img
-                className="postImgCard"
-                src="https://i.ibb.co/7S1NZWR/Corum-Rolls-Royce18-KWhite-Gold-Second-Hand-Watch-Collectors7.webp"
-              ></img>
-            </div>
-            <h2 className="cardTitle">CORUM</h2>
-            <p className="descriptionCard">Lorem ipsum dolor sit amet consectetur. Vulputate arcu feugiat mattis fermentum hendrerit imperdiet. Dictum tincidunt at eget nunc vestibulum vulputate nulla. Non ultricies ipsum erat tristique. </p>
+    <>
+      <div className="topHeadingPost">
+        <h1 className="postsHeader">POSTS</h1>
+        <p className="subHeading">
+          Explore The Wide Variety of Ugly Watches on Planet
+        </p>
+      </div>
+      <div className="parentGrid">
+        <div className="grid">
+          <div
+            className="parentCard"
+         
+          >
+            {watches.map((watch) => (
+              <div className="card" key={watch._id}>
+                <div>
+                  {/* <button className="btns">delete</button> */}
+                  {/* <button className="btns">update</button> */}
+                  <img
+                    className="postImgCard"
+                    src={watch.Image}
+                    alt={watch.title} // Add alt attribute for accessibility
+                  ></img>
+                </div>
+                <h2 className="cardTitle">{watch.Title}</h2>
+                <p className="descriptionCard">{watch.Description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Posts;
+export default Home;
