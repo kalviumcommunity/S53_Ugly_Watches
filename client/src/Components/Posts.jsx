@@ -40,7 +40,7 @@ export const Home = () => {
                   <img
                     className="postImgCard"
                     src={watch.Image}
-                    alt={watch.title} // Add alt attribute for accessibility
+                    alt={watch.Title} 
                   ></img>
                 </div>
                 <h2 className="cardTitle">{watch.Title}</h2>
