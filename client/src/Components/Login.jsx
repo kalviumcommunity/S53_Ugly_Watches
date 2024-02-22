@@ -7,8 +7,8 @@ function Login() {
         <div>
           <h1>WELCOME</h1>
           <form>
-            <input placeholder="Name"></input>
-            <input placeholder="Password"></input>
+            <input className="loginInputs" placeholder="Name"></input>
+            <input className="loginInputs" placeholder="Password"></input>
             <div className="submitBtn">
               <button className="formBtn">SUBMIT</button>
             </div>

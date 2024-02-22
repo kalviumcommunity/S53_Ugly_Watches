@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 
 const WatchSchema = mongoose.Schema({
   postID: {
-    type: Number,
-    required: true,
+    type: Number
   },
   Title: {
     type: String,
     required: true,
   },
-  ImageUrl: {
+  Image: {
     type: String,
     required: true,
   },

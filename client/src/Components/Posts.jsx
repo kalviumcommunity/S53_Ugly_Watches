@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ScrollFade from "@benestudioco/react-scrollfade";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [watches, setWatches] = useState([]);
-
   useEffect(() => {
     const fetchWatches = async () => {
       try {
@@ -19,7 +18,11 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
+    <div className="postsPage">
+      <Link style={{ textDecoration: "none" }} to="/create-post">
+        {" "}
+        <button className="addPostBtn">POST</button>{" "}
+      </Link>
       <div className="topHeadingPost">
         <h1 className="postsHeader">POSTS</h1>
         <p className="subHeading">
@@ -28,10 +31,7 @@ export const Home = () => {
       </div>
       <div className="parentGrid">
         <div className="grid">
-          <div
-            className="parentCard"
-         
-          >
+          <div className="parentCard">
             {watches.map((watch) => (
               <div className="card" key={watch._id}>
                 <div>
@@ -40,7 +40,7 @@ export const Home = () => {
                   <img
                     className="postImgCard"
                     src={watch.Image}
-                    alt={watch.Title} 
+                    alt={watch.Title}
                   ></img>
                 </div>
                 <h2 className="cardTitle">{watch.Title}</h2>
@@ -50,7 +50,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

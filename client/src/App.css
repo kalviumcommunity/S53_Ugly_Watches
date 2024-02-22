@@ -184,7 +184,7 @@ form {
     font-family: 'Times New Roman', Times, serif;
 }
 
-input {
+.loginInputs {
     margin-top: 12px;
     width: 150%;
     border-radius: 10px;
@@ -194,7 +194,7 @@ input {
     color: #C4A070;
 }
 
-input:focus {
+.loginInputs:focus {
     outline: none;
 }
 
@@ -220,6 +220,10 @@ input:focus {
 }
 
 /* card posts */
+.parentCard {
+    padding-bottom: 300px;
+}
+
 .postImgCard {
     width: 405px;
     object-fit: cover;
@@ -247,6 +251,13 @@ input:focus {
     width: fit-content;
     /* height: fit-content; */
     border-radius: 10px;
+    transition: background-color 1.0s ease, color 0.3s ease;
+
+}
+
+.card:hover {
+    background-color: #000000;
+    color: wheat;
 }
 
 .btns {
@@ -272,7 +283,6 @@ input:focus {
 .card {
     display: grid;
     place-content: center;
-
 }
 
 .parentGrid {
@@ -293,8 +303,112 @@ input:focus {
     text-align: center;
     font-weight: lighter;
     color: rgb(215, 215, 215);
+    padding-bottom: 20px;
 }
 
 .topHeadingPost {
     line-height: 50px;
+}
+
+.addPostBtn {
+    position: fixed;
+    left: 88%;
+    top: 90%;
+    padding: 10px 40px;
+    border-radius: 35px;
+    background-color: #1E1E1E;
+    color: #e7bc85;
+    border: 2px solid #e7bc85;
+    font-family: Griffin Demo;
+    font-size: 18px;
+    letter-spacing: 5px;
+    transition: background-color 1.0s ease, color 0.3s ease;
+}
+
+.addPostBtn:hover {
+    background-color: wheat;
+    color: #1E1E1E;
+}
+
+/* POST CARD */
+
+
+.ParentPostCard {
+    display: flex;
+    justify-content: center;
+}
+
+.postCard {
+    background-color: #131313;
+    margin-top: 60px;
+    width: fit-content;
+    padding: 90px 50px;
+    padding-bottom: 50px;
+    border-radius: 11px;
+}
+
+.TitlePost>h1 {
+    text-align: left;
+    font-size: 100px;
+    font-family: Griffin Demo;
+    font-weight: 100;
+    letter-spacing: 5px;
+}
+
+.postInputs {
+    background-color: #212121;
+    border: none;
+    padding: 20px 0px;
+    width: 96%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: wheat;
+    padding-left: 20px;
+}
+
+.postInputs:focus {
+    border: 1px solid #e7bc85;
+    outline: #e7bc85;
+}
+
+.postTextArea {
+    border-radius: 10px;
+    border: none;
+    background-color: #212121;
+    padding: 50px 20px;
+    padding-right: 500px;
+    color: wheat;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e7bc85;
+}
+
+.postTextArea:focus {
+    border: 1px solid #e7bc85;
+    outline: #e7bc85;
+}
+
+.postSubmitBtn {
+    margin-right: 550px;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border-radius: 35px;
+    background-color: #1E1E1E;
+    color: #e7bc85;
+    border: 2px solid #e7bc85;
+    font-family: Griffin Demo;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: background-color 1.0s ease, color 0.3s ease;
+}
+
+.postSubmitBtn:hover {
+    background-color: #e7bc85;
+    color: black;
+}
+
+.postImage {
+    position: absolute;
+    width: 600px;
+    top: 60px;
+    left: 630px;
 }

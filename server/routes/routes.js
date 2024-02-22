@@ -17,16 +17,16 @@ async function createWatch(req, res) {
     _id: new mongoose.Types.ObjectId(),
     postID: req.body.postID,
     Title: req.body.Title,
-    ImageUrl: req.body.ImageUrl,
+    Image: req.body.Image, 
   });
-
+  
   try {
     const result = await watch.save();
     res.status(201).json({
       createdWatch: {
         postID: result.postID,
         Title: result.Title,
-        ImageUrl: result.ImageUrl,
+        Image: result.Image,
         _id: result._id,
       },
     });
@@ -49,7 +49,6 @@ async function updateWatchById(req, res) {
   }
 }
 
-// Delete a watch by ID
 async function deleteWatchById(req, res) {
   try {
     const result = await WatchesModel.findByIdAndDelete(req.params.id);
