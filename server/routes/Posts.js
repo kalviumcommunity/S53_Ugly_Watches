@@ -15,12 +15,12 @@ router.get("/", async (req, res) => {
 
 // Create a new watch
 router.post("/", async (req, res) => {
+  const { postID, Title, Image, Description } = req.body;
   const watch = new WatchesModel({
-    _id: new mongoose.Types.ObjectId(),
-    postID: req.body.postID,
-    Title: req.body.Title, 
-    ImageUrl: req.body.ImageUrl,
-    Description: req.body.Description,
+    postID,
+    Title,
+    Image,
+    Description,
   });
 
   try {
@@ -29,12 +29,13 @@ router.post("/", async (req, res) => {
       createdWatch: {
         postID: result.postID,
         Title: result.Title,
-        ImageUrl: result.ImageUrl,
-        Description: req.body.Description,
+        Image: result.Image,
+        Description: result.Description,
         _id: result._id,
       },
     });
   } catch (error) {
+    console.error("Error in POST /watch:", error);
     res.status(500).json(error);
   }
 });

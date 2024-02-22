@@ -11,7 +11,7 @@ function Navbar() {
           <Link style={{ textDecoration: "none" }} to="/posts">
             <p className="leftTexts">POSTS</p>{" "}
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/create-post">
+          <Link style={{ textDecoration: "none" }} to="/saved-post">
             {" "}
             <p className="leftTexts">SAVED</p>{" "}
           </Link>
