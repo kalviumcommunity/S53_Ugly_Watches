@@ -20,7 +20,7 @@ const CreatePost = () => {
         alert("Post Added");
         navigate("/posts");
     } catch (err) {
-      alert("Title Should Be Max 15 Characters");
+      alert("Title Should Be Max 20 Characters");
       console.log("err: ", err);
     }
   };
