@@ -39,7 +39,7 @@ router.post("/", createWatch, async (req, res) => {
 });
 
 // Update a watch by ID (PUT request)
-router.put("/:id", updateWatchById, async (req, res) => {
+router.put("/:id", createWatch, async (req, res) => {
   try {
     const result = await WatchesModel.findByIdAndUpdate(
       req.params.id,

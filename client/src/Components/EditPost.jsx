@@ -18,7 +18,7 @@ const UpdatePost = () => {
       navigate("/posts");
     } catch (error) {
       console.log(error);
-      alert("Title Should Be Max 15 Characters");
+      alert("Title Should Be Max 20 Characters");
     }
   };
   const getOldData = (id) => {

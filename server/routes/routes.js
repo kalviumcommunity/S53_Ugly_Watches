@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const WatchesModel = require("../Models/posts");
 
 const watchValidationSchema = joi.object({
-  Title: joi.string().required().min(10),
+  Title: joi.string().required().max(20),
   Image: joi.string().required(),
   Description: joi.string().required(),
 });
@@ -13,27 +13,22 @@ function createWatch(req, res, next) {
   let { error } = watchValidationSchema.validate(req.body);
   if (error) {
     console.log("Error in validation", error);
-    return res.status(401).json({ message: " Title jdsdknks" })
+    return res.status(401).json({ message: " Title jdsdknks" });
   } else {
     next();
-    ;
   }
-
 }
-
 // Update a watch by ID
- function updateWatchById(req, res) {
+async function updateWatchById(req, res) {
   console.log(req.body);
   let { error } = watchValidationSchema.validate(req.body);
   if (error) {
     console.log("Error in validation", error);
-    return res.status(401).json({ message: " Title jdsdknks" })
+    return res.status(401).json({ message: " Title jdsdknks" });
   } else {
     next();
-    ;
   }
 }
-
 async function deleteWatchById(req, res) {
   try {
     const result = await WatchesModel.findByIdAndDelete(req.params.id);

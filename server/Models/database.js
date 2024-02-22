@@ -83,10 +83,8 @@ const WATCHES_FILE = [
   watches10,
 ];
 // Connect to your local MongoDB instance
-const mongouri =
-  "mongodb+srv://rajabshoukath:rajab2004@hideoushours.h27dy0l.mongodb.net/";
 mongoose
-  .connect(mongouri)
+  .connect(process.env.mongoURI)
   .then(() => console.log("Connected to local MongoDB"))
   .catch((err) => console.error("Error connecting to local MongoDB:", err));
 
