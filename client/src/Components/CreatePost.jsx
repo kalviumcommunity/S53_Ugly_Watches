@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [watch, setWatch] = useState({
-    postID: "",
     Title: "",
     Image: "",
     Description: "",
@@ -17,11 +16,12 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/watch", watch);
-      alert("Post Added");
-      navigate("/posts");
-    } catch (error) {
-      console.log(error);
+      const response = await axios.post("http://localhost:3001/watch", watch);
+        alert("Post Added");
+        navigate("/posts");
+    } catch (err) {
+      alert("Title Should Be Max 15 Characters");
+      console.log("err: ", err);
     }
   };
   return (
