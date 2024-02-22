@@ -10,7 +10,7 @@ List of Ugliest Watches on the planet
 - Users can vote and rank watches based on their preferences.
 
 - Sort/Filter:
-  For easy navigation Sorting and filteb ring option
+  For easy navigation Sorting and filtering option
   - User Generated Lists:
     Users can add their lists of Ugly Watches
 - Users can save their favourite ugly watches.
