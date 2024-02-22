@@ -232,11 +232,31 @@ form {
 
 }
 
+.CardTitleDiv {
+    display: flex;
+    align-items: center;
+}
+
 .cardTitle {
     font-family: heverlyregular-0vdqr;
     font-size: 48px;
     padding: 50px 50px 0px;
 }
+
+.iconsPost {
+    width: 20px;
+    height: 20px;
+    margin-top: 40px;
+    display: flex;
+    cursor: pointer;
+}
+
+.iconsPostDiv {
+    display: flex;
+    justify-content: space-around;
+    width: 60px;
+}
+
 
 .descriptionCard {
     font-family: 'Times New Roman', Times, serif;

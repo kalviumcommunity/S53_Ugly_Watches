@@ -4,16 +4,27 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [watches, setWatches] = useState([]);
-  useEffect(() => {
-    const fetchWatches = async () => {
-      try {
-        const response = await axios.get("http://localhost:3001/watch");
-        setWatches(response.data);
-      } catch (error) {
-        console.log("error: ", error);
-      }
-    };
 
+  const fetchWatches = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/watch");
+      setWatches(response.data);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/watch/${id}`);
+      console.log("successful", id);
+      fetchWatches();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
     fetchWatches();
   }, []);
 
@@ -35,15 +46,28 @@ export const Home = () => {
             {watches.map((watch) => (
               <div className="card" key={watch._id}>
                 <div>
-                  {/* <button className="btns">delete</button> */}
-                  {/* <button className="btns">update</button> */}
                   <img
                     className="postImgCard"
                     src={watch.Image}
                     alt={watch.Title}
                   ></img>
                 </div>
-                <h2 className="cardTitle">{watch.Title}</h2>
+                <div className="CardTitleDiv">
+                  <h2 className="cardTitle">{watch.Title}</h2>
+                  <div className="iconsPostDiv">
+                    <img
+                      onClick={() => handleDelete(watch._id)}
+                      className="iconsPost"
+                      src="https://i.imgur.com/NBvokyU.png"
+                    ></img>
+                    <Link to={`/editPost/${watch._id}`}>
+                      <img
+                        className="iconsPost"
+                        src="https://i.imgur.com/xZ67pZi.png"
+                      ></img>
+                    </Link>
+                  </div>
+                </div>
                 <p className="descriptionCard">{watch.Description}</p>
               </div>
             ))}
