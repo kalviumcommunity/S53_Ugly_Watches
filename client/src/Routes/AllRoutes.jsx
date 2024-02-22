@@ -19,7 +19,7 @@ function AllRoutes() {
       <Route path="/create-post" element={<CreatePost />} />
       <Route path="/saved-posts" element={<Saved />} />
       <Route path="/about" element={<About />} />
-      <Route path="/editPost" element={<EditPost />} />
+      <Route path="/editPost/:id" element={<EditPost />} />
     </Routes>
   );
 }
