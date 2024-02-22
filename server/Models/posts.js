@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 
 const WatchSchema = mongoose.Schema({
-  postID: {
-    type: Number
-  },
   Title: {
     type: String,
     required: true,

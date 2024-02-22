@@ -1,7 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const WatchesModel = require("../Models/posts");
+const { createWatch } = require("./routes");
+const { updateWatchById } = require("./routes");
 const router = express.Router();
+// const createWatch = require("./")
 
 // Get all watches
 router.get("/", async (req, res) => {
@@ -14,20 +17,15 @@ router.get("/", async (req, res) => {
 });
 
 // Create a new watch
-router.post("/", async (req, res) => {
-  const { postID, Title, Image, Description } = req.body;
-  const watch = new WatchesModel({
-    postID,
-    Title,
-    Image,
-    Description,
-  });
+router.post("/", createWatch, async (req, res) => {
+  const { Title, Image, Description } = req.body;
+
+  const watch = new WatchesModel(req.body);
 
   try {
     const result = await watch.save();
     res.status(201).json({
       createdWatch: {
-        postID: result.postID,
         Title: result.Title,
         Image: result.Image,
         Description: result.Description,
@@ -41,7 +39,7 @@ router.post("/", async (req, res) => {
 });
 
 // Update a watch by ID (PUT request)
-router.put("/:id", async (req, res) => {
+router.put("/:id", updateWatchById, async (req, res) => {
   try {
     const result = await WatchesModel.findByIdAndUpdate(
       req.params.id,
