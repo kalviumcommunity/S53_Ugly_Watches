@@ -13,7 +13,7 @@ const UpdatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3001/watch/${id}`, newWatch);
+      await axios.put(`http://localhost:3002/watch/${id}`, newWatch);
       alert("Post Updated");
       navigate("/posts");
     } catch (error) {
@@ -23,7 +23,7 @@ const UpdatePost = () => {
   };
   const getOldData = (id) => {
     axios
-      .get(`http://localhost:3001/watch/${id}`)
+      .get(`http://localhost:3002/watch/${id}`)
       .then((res) => {
         setNewWatch((prevState) => ({
           ...prevState,
