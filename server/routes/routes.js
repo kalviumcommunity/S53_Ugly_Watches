@@ -13,7 +13,7 @@ function createWatch(req, res, next) {
   let { error } = watchValidationSchema.validate(req.body);
   if (error) {
     console.log("Error in validation", error);
-    return res.status(401).json({ message: " Title jdsdknks" });
+    return res.status(401).json({ message: " Title error" });
   } else {
     next();
   }
@@ -24,7 +24,7 @@ async function updateWatchById(req, res) {
   let { error } = watchValidationSchema.validate(req.body);
   if (error) {
     console.log("Error in validation", error);
-    return res.status(401).json({ message: " Title jdsdknks" });
+    return res.status(401).json({ message: " Title error" });
   } else {
     next();
   }

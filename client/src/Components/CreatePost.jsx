@@ -16,7 +16,7 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/watch", watch);
+      const response = await axios.post("http://localhost:3002/watch", watch);
         alert("Post Added");
         navigate("/posts");
     } catch (err) {

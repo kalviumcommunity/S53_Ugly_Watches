@@ -7,7 +7,7 @@ export const Home = () => {
 
   const fetchWatches = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/watch");
+      const response = await axios.get("http://localhost:3002/watch");
       setWatches(response.data);
     } catch (error) {
       console.log("error: ", error);
@@ -16,7 +16,7 @@ export const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/watch/${id}`);
+      await axios.delete(`http://localhost:3002/watch/${id}`);
       console.log("successful", id);
       fetchWatches();
     } catch (err) {

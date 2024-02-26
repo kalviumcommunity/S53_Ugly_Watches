@@ -1,5 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 function Navbar() {
+  const [cookies, setCookies] = useCookies(["access_token"])
+  const navigate = useNavigate()
+  const logout=()=>{
+    setCookies("access_token", "")
+    setCookies("username", "")
+    window.localStorage.removeItem('userID')
+    Navigate("/")
+  }
   return (
     <div className="parentDiv">
       <nav>
@@ -26,9 +35,9 @@ function Navbar() {
         </div>
         {/* SIGN IN BUTTON */}
         <div>
-          <Link style={{ textDecoration: "none" }} to="/login">
+          {!cookies.access_token ? <Link style={{ textDecoration: "none" }} to="/register">
             <button className="registerBtnDiv">REGISTER</button>
-          </Link>
+          </Link> : <button className="registerBtnDiv" onClick={logout}>LOGOUT</button>}
         </div>
       </nav>
     </div>
