@@ -42,17 +42,5 @@ userRouter.post("/login", async (req, res) => {
   const token = jwt.sign({ id: user._id }, "secret");
   res.json({ token, userID: user._id, username: username });
 });
-module.exports.verifyToken = function (req, res, next) {
-  const authHeader = req.headers.authorization;
-  if (authHeader) {
-    jwt.verify(authHeader, "secret", function (err) {
-      if (err) {
-        return res.sendStatus(403);
-      }
-      next();
-    });
-  } else {
-    res.sendStatus(401);
-  }
-};
+
 module.exports = userRouter;

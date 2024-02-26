@@ -4,17 +4,16 @@ const mongoose = require("mongoose");
 const userRouter = require("./routes/User");
 
 const router = require("./routes/Posts");
-require("dotenv").config();
+require("dotenv").config("./.env");
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+console.log("process.env.mongoURI: ", process.env);
 
 app.use("/watch", router);
 app.use("/auth", userRouter);
-mongoose.connect(
-  "mongodb+srv://rajabshoukath:rajab2004@hideoushours.h27dy0l.mongodb.net/"
-);
+mongoose.connect(process.env.mongoURI);
 
 app.listen(3001, () => console.log("Server started"));
 const db = mongoose.connection;
