@@ -18,7 +18,6 @@ function Login() {
       });
       console.log("response: ", response);
       setCookies("access_token", response.data.token);
-      window.localStorage.setItem("userID", response.data.userID);
       alert("LOGIN SUCCESS");
       setCookies("username", response.data.username);
       navigate("/");

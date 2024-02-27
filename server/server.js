@@ -9,7 +9,6 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-console.log("process.env.mongoURI: ", process.env);
 
 app.use("/watch", router);
 app.use("/auth", userRouter);

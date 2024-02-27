@@ -7,7 +7,7 @@ function Navbar() {
     setCookies("access_token", "")
     setCookies("username", "")
     window.localStorage.removeItem('userID')
-    Navigate("/")
+    navigate("/")
   }
   return (
     <div className="parentDiv">
