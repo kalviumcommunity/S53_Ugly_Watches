@@ -42,7 +42,46 @@ nav {
     text-decoration: none
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: wheat;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropDownItems {
+    color: wheat;
+    font-size: 12px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(38, 38, 38);
+    border-radius: 10px;
+
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
 
 .leftTexts {
     cursor: pointer;
