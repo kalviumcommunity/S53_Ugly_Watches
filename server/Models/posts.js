@@ -11,7 +11,11 @@ const WatchSchema = mongoose.Schema({
   },
   Description: {
     type: String,
-    require: true,
+    required: true,
+  },
+  username: {
+    type: String,
+    required: true,
   },
 });
 const WatchesModel = mongoose.model("hideoushours", WatchSchema);

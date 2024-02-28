@@ -17,7 +17,7 @@ function AllRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/posts" element={<Posts />} />
       <Route path="/create-post" element={<CreatePost />} />
-      <Route path="/saved-posts" element={<Saved />} />
+      <Route path="/user/:username" element={<Saved />} />
       <Route path="/about" element={<About />} />
       <Route path="/editPost/:id" element={<EditPost />} />
     </Routes>

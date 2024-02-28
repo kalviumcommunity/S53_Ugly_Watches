@@ -1,14 +1,35 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+
 function Navbar() {
-  const [cookies, setCookies] = useCookies(["access_token"])
-  const navigate = useNavigate()
-  const logout=()=>{
-    setCookies("access_token", "")
-    setCookies("username", "")
-    window.localStorage.removeItem('userID')
-    navigate("/")
-  }
+  const [cookies, setCookie, removeCookie] = useCookies(["access_token"]);
+  const getCookieData = (cookieName) => {
+    return cookies[cookieName];
+  };
+  const username = getCookieData("username");
+  const [watchUsers, setWatchUsers] = useState([]);
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get("http://localhost:3002/watch/users");
+      setWatchUsers(response.data);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+  const navigate = useNavigate();
+  const logout = () => {
+    setCookie("access_token", "");
+    setCookie("username", "");
+    window.localStorage.removeItem("userID");
+    navigate("/");
+  };
+
   return (
     <div className="parentDiv">
       <nav>
@@ -20,10 +41,18 @@ function Navbar() {
           <Link style={{ textDecoration: "none" }} to="/posts">
             <p className="leftTexts">POSTS</p>{" "}
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/saved-post">
-            {" "}
-            <p className="leftTexts">SAVED</p>{" "}
-          </Link>
+          {/* DROPDOWN */}
+          <div className="dropdown">
+            <p className="leftTexts">USERS</p>
+            <div className="dropdown-content">
+              {watchUsers.map((user, i) => (
+                <div className="dropDownItems" key={i}>
+                  <Link to={`/user/${user.username}`}>{user.username}</Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <Link style={{ textDecoration: "none" }} to="/about">
             {" "}
             <p className="leftTexts">ABOUT</p>{" "}
@@ -35,9 +64,15 @@ function Navbar() {
         </div>
         {/* SIGN IN BUTTON */}
         <div>
-          {!cookies.access_token ? <Link style={{ textDecoration: "none" }} to="/register">
-            <button className="registerBtnDiv">REGISTER</button>
-          </Link> : <button className="registerBtnDiv" onClick={logout}>LOGOUT</button>}
+          {!cookies.access_token ? (
+            <Link style={{ textDecoration: "none" }} to="/register">
+              <button className="registerBtnDiv">REGISTER</button>
+            </Link>
+          ) : (
+            <button className="registerBtnDiv" onClick={logout}>
+              LOGOUT
+            </button>
+          )}
         </div>
       </nav>
     </div>

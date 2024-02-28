@@ -16,7 +16,7 @@ export const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3002/watch/${id}`);
+      await axios.delete(`http://localhost:3002/watch/delete/${id}`);
       console.log("successful", id);
       fetchWatches();
     } catch (err) {

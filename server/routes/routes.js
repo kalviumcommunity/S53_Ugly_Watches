@@ -6,6 +6,7 @@ const watchValidationSchema = joi.object({
   Title: joi.string().required().max(20),
   Image: joi.string().required(),
   Description: joi.string().required(),
+  username: joi.string().required(),
 });
 // Create a new watch
 function createWatch(req, res, next) {

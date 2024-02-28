@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-const Watch = require("./schema");
+const Watch = require("./posts");
 require("dotenv").config();
+
 const watches1 = new Watch({
   Title: "CORUM",
   Image:

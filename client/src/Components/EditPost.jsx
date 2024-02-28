@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const UpdatePost = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(["myCookie"]);
+  const getCookieData = (cookieName) => {
+    return cookies[cookieName];
+  };
+  const username = getCookieData("username");
   const [newWatch, setNewWatch] = useState({
     Title: "",
     Image: "",
     Description: "",
+    username: username,
   });
   const { id } = useParams();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3002/watch/${id}`, newWatch);
+      await axios.put(`http://localhost:3002/watch/update/${id}`, newWatch);
       alert("Post Updated");
       navigate("/posts");
     } catch (error) {
@@ -23,7 +30,7 @@ const UpdatePost = () => {
   };
   const getOldData = (id) => {
     axios
-      .get(`http://localhost:3002/watch/${id}`)
+      .get(`http://localhost:3002/watch/update/${id}`)
       .then((res) => {
         setNewWatch((prevState) => ({
           ...prevState,

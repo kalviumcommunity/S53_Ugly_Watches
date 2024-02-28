@@ -20,6 +20,7 @@ function Login() {
       setCookies("access_token", response.data.token);
       alert("LOGIN SUCCESS");
       setCookies("username", response.data.username);
+      window.localStorage.setItem("userID", response.data.userID);
       navigate("/");
     } catch (err) {
       alert("UserName Or Password Is Incorrect");

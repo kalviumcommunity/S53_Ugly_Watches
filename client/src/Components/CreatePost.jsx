@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useGetUserID } from "../Hooks/useGetUserId";
+import { useCookies } from "react-cookie";
 
 const CreatePost = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(["myCookie"]);
+  const getCookieData = (cookieName) => {
+    return cookies[cookieName];
+  };
+  const username = getCookieData('username');
+  console.log("username: ", username);
+
   const [watch, setWatch] = useState({
     Title: "",
     Image: "",
     Description: "",
+    username: username,
   });
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -16,12 +26,12 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3002/watch", watch);
-        alert("Post Added");
-        navigate("/posts");
-    } catch (err) {
+      const response = await axios.post("http://localhost:3002/watch/create", watch);
+      alert("Post Added");
+      navigate("/posts");
+    } catch (error) {
       alert("Title Should Be Max 20 Characters");
-      console.log("err: ", err);
+      console.log("err: ", error);
     }
   };
   return (
