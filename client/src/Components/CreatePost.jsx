@@ -26,7 +26,8 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3002/watch/create", watch);
+      const response = await axios.post(`${import.meta.env.VITE_RENDER_LINK}/watch/create`, watch);
+      // console.log(`${import.meta.env.VITE_RENDER_LINK}/watch/create`)
       alert("Post Added");
       navigate("/posts");
     } catch (error) {
