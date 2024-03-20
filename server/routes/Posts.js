@@ -30,8 +30,8 @@ router.get("/user/:username", async (req, res) => {
   try {
     const username = req.params.username;
     console.log("username: ", username);
-    const result = await WatchesModel.find({username});
-    res.status(200).json({result});
+    const result = await WatchesModel.find({ username });
+    res.status(200).json({ result });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -84,7 +84,6 @@ router.put("/update/:id", createWatch, async (req, res) => {
     res.status(500).json(error);
   }
 });
-
 
 // Delete a watch by ID (DELETE request)
 router.delete("/delete/:id", async (req, res) => {

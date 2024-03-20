@@ -20,17 +20,19 @@ const UpdatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${import.meta.env.VITE_RENDER_LINK}/watch/update/${id}`, newWatch);
+      await axios.put(`${import.meta.env.VITE_RENDER_LINK}/watch/update/${id}`,
+        newWatch
+      );
       alert("Post Updated");
       navigate("/posts");
     } catch (error) {
       console.log(error);
-      alert("Title Should Be Max 20 Characters");
+      // alert("Title Should Be Max 20 Characters");
     }
   };
   const getOldData = (id) => {
     axios
-      .get(`${import.meta.env.VITE_RENDER_LINK}/watch/update/${id}`)
+      .get(import.meta.env.VITE_RENDER_LINK/watch/update/{id})
       .then((res) => {
         setNewWatch((prevState) => ({
           ...prevState,

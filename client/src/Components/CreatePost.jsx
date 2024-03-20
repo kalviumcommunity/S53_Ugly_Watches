@@ -9,7 +9,7 @@ const CreatePost = () => {
   const getCookieData = (cookieName) => {
     return cookies[cookieName];
   };
-  const username = getCookieData('username');
+  const username = getCookieData("username");
   console.log("username: ", username);
 
   const [watch, setWatch] = useState({
@@ -27,11 +27,10 @@ const CreatePost = () => {
     e.preventDefault();
     try {
       const response = await axios.post(`${import.meta.env.VITE_RENDER_LINK}/watch/create`, watch);
-      // console.log(`${import.meta.env.VITE_RENDER_LINK}/watch/create`)
       alert("Post Added");
       navigate("/posts");
     } catch (error) {
-      alert("Title Should Be Max 20 Characters");
+      // alert("Title Should Be Max 20 Characters");
       console.log("err: ", error);
     }
   };
