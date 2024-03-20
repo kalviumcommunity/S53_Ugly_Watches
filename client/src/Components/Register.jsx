@@ -9,7 +9,7 @@ function Register() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/auth/register", {
+      await axios.post(`${import.meta.env.VITE_RENDER_LINK}/auth/register`, {
         username,
         password,
       });

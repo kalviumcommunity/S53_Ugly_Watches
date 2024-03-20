@@ -13,7 +13,9 @@ function Navbar() {
   const [watchUsers, setWatchUsers] = useState([]);
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:3002/watch/users");
+      const response = await axios.get(
+        `${import.meta.env.VITE_RENDER_LINK}/watch/users`
+      );
       setWatchUsers(response.data);
     } catch (error) {
       console.log("error: ", error);

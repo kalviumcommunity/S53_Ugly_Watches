@@ -16,7 +16,7 @@ const Saved = () => {
   const fetchWatches = async (username) => {
     try {
       const response = await axios.get(
-        `http://localhost:3002/watch/user/${username}`
+        `${import.meta.env.VITE_RENDER_LINK}/watch/user/${username}`
       );
       console.log("Response from server:", response.data.result);
       setWatches(response.data.result);
