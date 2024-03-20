@@ -21,4 +21,4 @@ db.once("open", () => {
   console.log("Connected to MongoDB");
 });
 
-app.listen(3002, () => console.log("Server started"));
+// app.listen(3002, () => console.log("Server started"));
