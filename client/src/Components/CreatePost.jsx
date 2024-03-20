@@ -25,13 +25,20 @@ const CreatePost = () => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(`${import.meta.env.VITE_RENDER_LINK}/watch/create`, watch);
-      alert("Post Added");
-      navigate("/posts");
-    } catch (error) {
-      // alert("Title Should Be Max 20 Characters");
-      console.log("err: ", error);
+    if (localStorage.getItem("userID")) {
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_RENDER_LINK}/watch/create`,
+          watch
+        );
+        alert("Post Added");
+        navigate("/posts");
+      } catch (error) {
+        console.log("Error:", error);
+        // Handle error if needed
+      }
+    } else {
+      alert("Please Log In To add post");
     }
   };
   return (
