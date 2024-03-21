@@ -1,5 +1,6 @@
 # HIDEOUS HOURS ⌚🤢
-LINK:- [HIDEOUS HOURS](https://hideoushours.netlify.app)
+[FRONTEND LINK](https://uglywatches.vercel.app/)
+[BACKEND LINK](https://s53-ugly-watches-asap.onrender.com)
 
 List of Ugliest Watches on the planet
 
