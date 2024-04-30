@@ -12,6 +12,7 @@ import Posts from "../Components/Posts";
 function AllRoutes() {
   return (
     <Routes>
+      {/* routes */}
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
